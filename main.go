@@ -15,6 +15,7 @@ func main() {
 
 	var mmhh []string
 	mmhh = append(mmhh, strconv.Itoa(now.Hour()))
+	mmhh = append(mmhh, ":")
 	mmhh = append(mmhh, strconv.Itoa(now.Minute()))
 
 	err := fuse.WriteText(strings.Join(mmhh, " "))
