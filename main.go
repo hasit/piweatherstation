@@ -12,18 +12,18 @@ import (
 )
 
 func main() {
-	var t time.Time
-	getWeather(t)
-	doEvery(1*time.Hour, getWeather)
+	getWeather()
+	go startPollingWeather()
 }
 
-func doEvery(d time.Duration, f func(time.Time)) {
-	for x := range time.Tick(d) {
-		f(x)
+func startPollingWeather() {
+	for {
+		<-time.After(2 * time.Hour)
+		go getWeather()
 	}
 }
 
-func getWeather(t time.Time) {
+func getWeather() {
 	key := getAPIKey()
 	lat := "47.7579160"
 	long := "-122.2396070"
