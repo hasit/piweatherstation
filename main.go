@@ -6,22 +6,22 @@ import (
 	"log"
 	"net/http"
 	"strings"
-	"time"
 
 	epdfuse "github.com/wmarbut/go-epdfuse"
 )
 
 func main() {
-	doEvery(1*time.Hour, getWeather)
+	getWeather()
+	// doEvery(1*time.Hour, getWeather)
 }
 
-func doEvery(d time.Duration, f func(time.Time)) {
-	for x := range time.Tick(d) {
-		f(x)
-	}
-}
+// func doEvery(d time.Duration, f func(time.Time)) {
+// 	for x := range time.Tick(d) {
+// 		f(x)
+// 	}
+// }
 
-func getWeather(t time.Time) {
+func getWeather() {
 	key := getAPIKey()
 	lat := "47.7579160"
 	long := "-122.2396070"
