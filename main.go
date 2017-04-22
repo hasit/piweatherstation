@@ -41,7 +41,7 @@ func getWeather() {
 	var weatherStrings []string
 
 	weatherStrings = append(weatherStrings, w.Currently.Summary)
-	tempString := fmt.Sprintf("%.6f", w.Currently.Temperature)
+	tempString := fmt.Sprintf("%.2f", w.Currently.Temperature)
 	weatherStrings = append(weatherStrings, tempString)
 
 	fuse := epdfuse.NewEpdFuse()
