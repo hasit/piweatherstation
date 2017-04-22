@@ -42,6 +42,8 @@ func getWeather() {
 
 	var weatherStrings []string
 
+	timeString := fmt.Sprintf("%s", time.Now())
+	weatherStrings = append(weatherStrings, timeString)
 	weatherStrings = append(weatherStrings, w.Currently.Summary)
 	tempString := fmt.Sprintf("%.2f", w.Currently.Temperature)
 	weatherStrings = append(weatherStrings, tempString)
