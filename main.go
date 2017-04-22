@@ -18,7 +18,7 @@ func main() {
 
 func startPollingWeather() {
 	for {
-		<-time.After(2 * time.Hour)
+		<-time.After(1 * time.Hour)
 		go getWeather()
 	}
 }
